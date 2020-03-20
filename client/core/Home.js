@@ -9,6 +9,7 @@ import Grid from 'material-ui/Grid'
 import auth from './../auth/auth-helper'
 import FindPeople from './../user/FindPeople'
 import Newsfeed from './../post/Newsfeed'
+import Signin from './../auth/Signin'
 
 const styles = theme => ({
   root: {
@@ -51,21 +52,9 @@ class Home extends Component {
     return (
       <div className={classes.root}>
         {this.state.defaultPage &&
-          <Grid container spacing={24}>
-            <Grid item xs={12}>
-              <Card className={classes.card}>
-                <Typography type="headline" component="h2" className={classes.title}>
-                  Home Page
-                </Typography>
-                <CardMedia className={classes.media} image={seashellImg} title="Unicorn Shells"/>
-                <CardContent>
-                  <Typography type="body1" component="p">
-                    Welcome to the MERN Social home page. 
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
+ 
+            <Signin/>
+
         }
         {!this.state.defaultPage &&
           <Grid container spacing={24}>

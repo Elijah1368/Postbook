@@ -35,6 +35,10 @@ const Menu = withRouter(({history}) => (
             <Button style={isActive(history, "/signin")}>Sign In
             </Button>
           </Link>
+          <Link to="/test">
+            <Button style={isActive(history, "/test")}>test
+            </Button>
+          </Link>
         </span>)
       }
       {

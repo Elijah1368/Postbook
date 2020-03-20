@@ -67,7 +67,7 @@ class Signin extends Component {
 
   render() {
     const {classes} = this.props
-    const {from} = this.props.location.state || {
+    const {from} = {
       from: {
         pathname: '/'
       }
@@ -95,6 +95,7 @@ class Signin extends Component {
         <CardActions>
           <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
         </CardActions>
+
       </Card>
     )
   }

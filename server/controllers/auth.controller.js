@@ -19,7 +19,7 @@ const signin = (req, res) => {
       })
     }
 
-    const token = jwt.sign({
+    const token = jwt.sign({ 
       _id: user._id
     }, config.jwtSecret)
 
