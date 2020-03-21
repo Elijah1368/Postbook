@@ -14,7 +14,8 @@
   "scripts": {
     "development": "nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
-    "start": "cross-env NODE_ENV=production node ./dist/server.generated.js"
+    "start": "cross-env NODE_ENV=production node ./dist/server.generated.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false"
   },
   "engines": { 
     "node": "8.11.1",
