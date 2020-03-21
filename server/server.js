@@ -3,11 +3,11 @@ import app from './express'
 import mongoose from 'mongoose'
 
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb+srv://eramian125:Aq1sw2@cluster0-qi6kh.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect(config.mongoUri,
     {autoIndex: false}).then(() => console.log('DB connected'))
                             .catch(err => console.log(err))
 mongoose.connection.on('error', () => {
-  throw new Error(`unable to connect to database: ${mongoUri}`)
+  throw new Error(`unable to connect to database: ${config.mongoUri}`)
 })
 
 app.listen(config.port, (err) => {
