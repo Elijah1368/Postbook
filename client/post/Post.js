@@ -39,7 +39,7 @@ const styles = theme => ({
     padding:0
   },
   media: {
-    maxHeight: 400
+    maxWidth: '53vw'
   },
   button: {
    margin: theme.spacing.unit,

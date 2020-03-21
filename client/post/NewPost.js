@@ -76,7 +76,7 @@ class NewPost extends Component {
         this.setState({error: data.error})
       } else {
         this.setState({text:'', photo: ''})
-        this.postData.set('photo', '')
+        this.postData.set('photo', '  ')
         this.props.addUpdate(data)
       }
     })
@@ -87,6 +87,13 @@ class NewPost extends Component {
       : event.target.value
     this.postData.set(name, value)
     this.setState({ [name]: value })
+  }
+  randomPlaceHolder() {
+    const list = ["TELL THE WORLD YOUR EVIL PLANS........", "Don't think, just post", "Come on POST! POST! POST!", "JUST POST IT!",
+    "post your life, privacy is imaginary....", "Let's post some stuff", "Post post baby....", "Post the color of your shirt", "Post a picture of that beautiful face",
+    "post what you think about yourself", "dun dun dun dunnnn", "Who cares what you post, just post it....", "Share your thoughts in this beautiful posting platform"]
+    let randomNo = Math.floor(Math.random() * list.length)
+    return list[randomNo]
   }
   render() {
     const {classes} = this.props
@@ -101,7 +108,7 @@ class NewPost extends Component {
           />
       <CardContent className={classes.cardContent}>
         <TextField
-            placeholder="Share your thoughts ..."
+            placeholder={this.randomPlaceHolder()}
             multiline
             rows="3"
             value={this.state.text}

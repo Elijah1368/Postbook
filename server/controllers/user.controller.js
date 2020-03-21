@@ -19,9 +19,6 @@ const create = (req, res, next) => {
   })
 }
 
-/**
- * Load user and append to req.
- */
 const userByID = (req, res, next, id) => {
   User.findById(id)
     .populate('following', '_id name')

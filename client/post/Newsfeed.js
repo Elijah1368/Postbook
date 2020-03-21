@@ -20,11 +20,16 @@ const styles = theme => ({
   },
   media: {
     minHeight: 330
+  },
+  loading: {
+    textAlign: 'center',
+    fontSize: '2vw'
   }
 })
 class Newsfeed extends Component {
   state = {
-      posts: []
+      posts: [],
+      loadingPosts: true
   }
   loadPosts = () => {
     const jwt = auth.isAuthenticated()
@@ -37,6 +42,7 @@ class Newsfeed extends Component {
         console.log(data.error)
       } else {
         this.setState({posts: data})
+        this.setState({loadingPosts: false})
       }
     })
   }
@@ -61,7 +67,9 @@ class Newsfeed extends Component {
         <Divider/>
         <NewPost addUpdate={this.addPost}/>
         <Divider/>
-        <PostList removeUpdate={this.removePost} posts={this.state.posts}/>
+        {!this.state.loadingPosts && 
+        <PostList removeUpdate={this.removePost} posts={this.state.posts}/>}
+        {this.state.loadingPosts &&  <Typography className={classes.loading}>Loading Posts...</Typography>}
       </Card>
     )
   }

@@ -25,7 +25,7 @@ class ProfileTabs extends Component {
   render() {
     return (
     <div>
-        <AppBar position="static" color="default">
+        <AppBar position="static" color="default" style={{alignItems:'center'}}>
           <Tabs
             value={this.state.tab}
             onChange={this.handleTabChange}
@@ -33,9 +33,9 @@ class ProfileTabs extends Component {
             textColor="primary"
             fullWidth
           >
-            <Tab label="Posts" />
-            <Tab label="Following" />
-            <Tab label="Followers" />
+            <Tab label="Posts" style={{marginRight: '3vw'}}/>
+            <Tab label="Following" style={{marginRight: '5vw', marginLeft:'5vw'}}/>
+            <Tab label="Followers" style={{marginLeft:'3vw'}}/>
           </Tabs>
         </AppBar>
        {this.state.tab === 0 && <TabContainer><PostList removeUpdate={this.props.removePostUpdate} posts={this.props.posts}/></TabContainer>}

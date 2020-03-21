@@ -10,7 +10,7 @@ import Menu from './core/Menu'
 import Signin from './auth/SigninSide'
 
 class MainRouter extends Component {
-  // Removes the server-side injected CSS when React component mounts
+ 
   componentDidMount() {
     const jssStyles = document.getElementById('jss-server-side')
     if (jssStyles && jssStyles.parentNode) {

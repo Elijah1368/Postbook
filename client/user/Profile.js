@@ -19,10 +19,10 @@ import {listByUser} from './../post/api-post.js'
 
 const styles = theme => ({
   root: theme.mixins.gutters({
-    maxWidth: 600,
+    maxWidth: '60vw',
     margin: 'auto',
     padding: theme.spacing.unit * 3,
-    marginTop: theme.spacing.unit * 5
+    marginTop: theme.spacing.unit * 5,
   }),
   title: {
     margin: `${theme.spacing.unit * 2}px ${theme.spacing.unit}px 0`,
@@ -30,9 +30,13 @@ const styles = theme => ({
     fontSize: '1em'
   },
   bigAvatar: {
-    width: 60,
-    height: 60,
+    width: '10vw',
+    height: '10vw',
     margin: 10
+  },
+  loading: {
+    textAlign: 'center',
+    fontSize: '2vw'
   }
 })
 
@@ -43,7 +47,8 @@ class Profile extends Component {
       user: {following:[], followers:[]},
       redirectToSignin: false,
       following: false,
-      posts: []
+      posts: [],
+      loadingPosts: true
     }
     this.match = match
   }
@@ -98,7 +103,7 @@ class Profile extends Component {
       if (data.error) {
         console.log(data.error)
       } else {
-        this.setState({posts: data})
+        this.setState({posts: data, loadingPosts: false})
       }
     })
   }
@@ -119,13 +124,10 @@ class Profile extends Component {
     }
     return (
       <Paper className={classes.root} elevation={4}>
-        <Typography type="title" className={classes.title}>
-          Profile
-        </Typography>
-        <List dense>
+        <List>
           <ListItem>
             <ListItemAvatar>
-              <Avatar src={photoUrl} className={classes.bigAvatar}/>
+              <img src={photoUrl} className={classes.bigAvatar}/>
             </ListItemAvatar>
             <ListItemText primary={this.state.user.name} secondary={this.state.user.email}/> {
              auth.isAuthenticated().user && auth.isAuthenticated().user._id == this.state.user._id
@@ -140,13 +142,12 @@ class Profile extends Component {
             : (<FollowProfileButton following={this.state.following} onButtonClick={this.clickFollowButton}/>)
             }
           </ListItem>
-          <Divider/>
-          <ListItem>
-            <ListItemText primary={this.state.user.about} secondary={"Joined: " + (
-              new Date(this.state.user.created)).toDateString()}/>
-          </ListItem>
+
         </List>
-        <ProfileTabs user={this.state.user} posts={this.state.posts} removePostUpdate={this.removePost}/>
+        {!this.state.loadingPosts && 
+        <ProfileTabs user={this.state.user} posts={this.state.posts} removePostUpdate={this.removePost}/>}
+        {this.state.loadingPosts && 
+        <Typography className={classes.loading}>Loading Posts...</Typography>}
       </Paper>
     )
   }
