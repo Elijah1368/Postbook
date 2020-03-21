@@ -1,1 +1,1 @@
-web: node ./dist/server.generated.js
+web: npm run start
