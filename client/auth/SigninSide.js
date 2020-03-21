@@ -13,6 +13,7 @@ import auth from './../auth/auth-helper'
 import { signin } from './api-auth.js'
 import {Redirect} from 'react-router-dom'
 import Icon from 'material-ui/Icon'
+import {Link} from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -25,7 +26,7 @@ const styles = theme => ({
     backgroundPosition: 'center',
   },
   paper: {
-    margin: 4,
+    margin: 0,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -33,14 +34,11 @@ const styles = theme => ({
     marginLeft: '2vw',
     marginRight: '2vw'
   },
-  avatar: {
-    margin: 1,
-  },
   form: {
-    width: '100%'
+    width: '100%',
   },
   submit: {
-    marginTop: '5vh',
+    marginTop: '6vh',
     fontSize: '2vh',
   },
   title: {
@@ -141,20 +139,15 @@ class SigninSide extends Component {
                     color="primary"
                     className={classes.submit}
                     onClick={this.clickSubmit}
+                    variant="raised"
                   >
                     LET'S GO
                 </Button>
                 </CardActions>
-
-                <Grid container>
-                  <Grid item xs>
-
-                  </Grid>
-                  <Grid item>
-
-                  </Grid>
-                </Grid>
               </div>
+              <Typography>
+                No account?   <Link to="/signup"><Button color="primary" size='small'>LET'S SIGN YOU UP BABY</Button></Link>
+              </Typography>
             </CardContent>
           </Grid>
         </Grid>

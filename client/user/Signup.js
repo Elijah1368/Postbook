@@ -12,11 +12,12 @@ import {Link} from 'react-router-dom'
 
 const styles = theme => ({
   card: {
-    maxWidth: 600,
+    maxWidth: '50vw',
     margin: 'auto',
     textAlign: 'center',
     marginTop: theme.spacing.unit * 5,
-    paddingBottom: theme.spacing.unit * 2
+    padding: theme.spacing.unit * 4,
+    paddingBottom: theme.spacing.unit * 8
   },
   error: {
     verticalAlign: 'middle'
@@ -26,9 +27,7 @@ const styles = theme => ({
     color: theme.palette.openTitle
   },
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 300
+
   },
   submit: {
     margin: 'auto',
@@ -69,12 +68,9 @@ class Signup extends Component {
     return (<div>
       <Card className={classes.card}>
         <CardContent>
-          <Typography type="headline" component="h2" className={classes.title}>
-            Sign Up
-          </Typography>
-          <TextField id="name" label="Name" className={classes.textField} value={this.state.name} onChange={this.handleChange('name')} margin="normal"/><br/>
-          <TextField id="email" type="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange('email')} margin="normal"/><br/>
-          <TextField id="password" type="password" label="Password" className={classes.textField} value={this.state.password} onChange={this.handleChange('password')} margin="normal"/>
+          <TextField fullWidth id="name" label="Name" className={classes.textField} value={this.state.name} onChange={this.handleChange('name')} margin="normal"/><br/>
+          <TextField fullWidth id="email" type="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange('email')} margin="normal"/><br/>
+          <TextField fullWidth id="password" type="password" label="Password" className={classes.textField} value={this.state.password} onChange={this.handleChange('password')} margin="normal"/>
           <br/> {
             this.state.error && (<Typography component="p" color="error">
               <Icon color="error" className={classes.error}>error</Icon>
@@ -82,7 +78,7 @@ class Signup extends Component {
           }
         </CardContent>
         <CardActions>
-          <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit}>Submit</Button>
+          <Button color="primary" variant="raised" onClick={this.clickSubmit} className={classes.submit} fullWidth>Submit</Button>
         </CardActions>
       </Card>
       <Dialog open={this.state.open} disableBackdropClick={true}>

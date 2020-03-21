@@ -9,7 +9,7 @@ import Grid from 'material-ui/Grid'
 import auth from './../auth/auth-helper'
 import FindPeople from './../user/FindPeople'
 import Newsfeed from './../post/Newsfeed'
-import Signin from './../auth/Signin'
+import Signin from './../auth/SigninSide'
 
 const styles = theme => ({
   root: {
@@ -50,21 +50,23 @@ class Home extends Component {
   render() {
     const {classes} = this.props
     return (
-      <div className={classes.root}>
+      <div >
         {this.state.defaultPage &&
  
             <Signin/>
 
         }
         {!this.state.defaultPage &&
-          <Grid container spacing={24}>
-            <Grid item xs={8} sm={7}>
+          <div className={classes.root}>
+          <Grid container spacing={24} >
+            <Grid item xs={10} sm={9}>
               <Newsfeed/>
             </Grid>
-            <Grid item xs={6} sm={5}>
+            <Grid item xs={4} sm={3}>
               <FindPeople/>
             </Grid>
           </Grid>
+          </div>
         }
       </div>
     )

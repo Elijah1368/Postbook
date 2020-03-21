@@ -78,9 +78,6 @@ class FindPeople extends Component {
     const {classes} = this.props
     return (<div>
       <Paper className={classes.root} elevation={4}>
-        <Typography type="title" className={classes.title}>
-          Who to follow
-        </Typography>
         <List>
           {this.state.users.map((item, i) => {
               return <span key={i}>

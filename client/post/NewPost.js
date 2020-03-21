@@ -18,7 +18,7 @@ const styles = theme => ({
     padding: `${theme.spacing.unit*3}px 0px 1px`
   },
   card: {
-    maxWidth:600,
+    maxWidth:1000,
     margin: 'auto',
     marginBottom: theme.spacing.unit*3,
     backgroundColor: 'rgba(65, 150, 136, 0.09)',
@@ -76,6 +76,7 @@ class NewPost extends Component {
         this.setState({error: data.error})
       } else {
         this.setState({text:'', photo: ''})
+        this.postData.set('photo', '')
         this.props.addUpdate(data)
       }
     })

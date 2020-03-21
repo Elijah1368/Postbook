@@ -11,9 +11,7 @@ import NewPost from './NewPost'
 
 const styles = theme => ({
   card: {
-    margin: 'auto',
-    paddingTop: 0,
-    paddingBottom: theme.spacing.unit*3
+
   },
   title: {
     padding:`${theme.spacing.unit * 3}px ${theme.spacing.unit * 2.5}px ${theme.spacing.unit * 2}px`,
@@ -60,9 +58,6 @@ class Newsfeed extends Component {
     const {classes} = this.props
     return (
       <Card className={classes.card}>
-        <Typography type="title" className={classes.title}>
-          Newsfeed
-        </Typography>
         <Divider/>
         <NewPost addUpdate={this.addPost}/>
         <Divider/>

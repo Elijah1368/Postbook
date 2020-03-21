@@ -17,7 +17,7 @@ import Comments from './Comments'
 
 const styles = theme => ({
   card: {
-    maxWidth:600,
+    maxWidth:1000,
     margin: 'auto',
     marginBottom: theme.spacing.unit*3,
     backgroundColor: 'rgba(0, 0, 0, 0.06)'
@@ -36,10 +36,10 @@ const styles = theme => ({
   photo: {
     textAlign: 'center',
     backgroundColor: '#f2f5f4',
-    padding:theme.spacing.unit
+    padding:0
   },
   media: {
-    height: 200
+    maxHeight: 400
   },
   button: {
    margin: theme.spacing.unit,
