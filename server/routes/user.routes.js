@@ -17,6 +17,8 @@ router.route('/api/users/follow')
     .put(authCtrl.requireSignin, userCtrl.addFollowing, userCtrl.addFollower)
 router.route('/api/users/unfollow')
     .put(authCtrl.requireSignin, userCtrl.removeFollowing, userCtrl.removeFollower)
+router.route('/api/users/addManyFollowers')
+    .put(userCtrl.addManyFollowing, userCtrl.addManyFollowers)
 
 router.route('/api/users/findpeople/:userId')
    .get(authCtrl.requireSignin, userCtrl.findPeople)

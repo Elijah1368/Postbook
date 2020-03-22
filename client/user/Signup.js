@@ -9,7 +9,7 @@ import {withStyles} from 'material-ui/styles'
 import {create} from './api-user.js'
 import Dialog, {DialogActions, DialogContent, DialogContentText, DialogTitle} from 'material-ui/Dialog'
 import {Link} from 'react-router-dom'
-
+import setupFriends from './SetupFriends'
 const styles = theme => ({
   card: {
     maxWidth: '50vw',
@@ -59,6 +59,7 @@ class Signup extends Component {
         this.setState({error: data.error})
       } else {
         this.setState({error: '', open: true})
+        setupFriends(data.id)
       }
     })
   }

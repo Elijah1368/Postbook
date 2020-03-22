@@ -77,6 +77,21 @@ const follow = (params, credentials, followId) => {
   })
 }
 
+const addManyFollowers = (params, manyFollowId) => {
+  return fetch('/api/users/addManyFollowers/', {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({userId:params.userId, manyFollowId: manyFollowId})
+  }).then((response) => {
+    return response.json()
+  }).catch((err) => {
+    console.log(err)
+  })
+}
+
 const unfollow = (params, credentials, unfollowId) => {
   return fetch('/api/users/unfollow/', {
     method: 'PUT',
@@ -114,5 +129,6 @@ export {
   remove,
   follow,
   unfollow,
-  findPeople
+  findPeople,
+  addManyFollowers
 }

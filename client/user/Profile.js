@@ -30,8 +30,7 @@ const styles = theme => ({
     fontSize: '1em'
   },
   bigAvatar: {
-    width: '10vw',
-    height: '10vw',
+    maxWidth: '40vw',
     margin: 10
   },
   loading: {

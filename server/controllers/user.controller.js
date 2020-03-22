@@ -14,7 +14,8 @@ const create = (req, res, next) => {
       })
     }
     res.status(200).json({
-      message: "Successfully signed up!"
+      message: "Successfully signed up!",
+      id: result.id
     })
   })
 }
@@ -131,6 +132,33 @@ const addFollower = (req, res) => {
   })
 }
 
+const addManyFollowing = (req, res, next) => {
+  User.findByIdAndUpdate(req.body.userId, {$push: {following: {$each: req.body.manyFollowId}}}, (err, result) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler.getErrorMessage(err)
+      })
+    }
+    next()
+  })
+}
+
+const addManyFollowers = (req, res) => {
+  User.update({addToDemo: "true"}, {$push: {followers: req.body.userId}}, {multi: true})
+  .populate('following', '_id name')
+  .populate('followers', '_id name')
+  .exec((err, result) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler.getErrorMessage(err)
+      })
+    }
+    result.hashed_password = undefined
+    result.salt = undefined
+    res.json(result)
+  })
+}
+
 const removeFollowing = (req, res, next) => {
   User.findByIdAndUpdate(req.body.userId, {$pull: {following: req.body.unfollowId}}, (err, result) => {
     if (err) {
@@ -183,5 +211,7 @@ export default {
   addFollower,
   removeFollowing,
   removeFollower,
-  findPeople
+  findPeople,
+  addManyFollowers,
+  addManyFollowing
 }
