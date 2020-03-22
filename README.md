@@ -28,3 +28,6 @@ Usage
 3.) start mongodb localserver
 4.) npm run build
 5.) npm start
+
+Technologies Used: 
+MongoDB, NodeJS, Mongoose, Express, React, 
