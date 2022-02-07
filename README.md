@@ -1,4 +1,6 @@
 Postbook
+
+Social media made with mern stack. See your friend's daily posts and post your own.
 ---
 
 <img src="Postbook2.PNG" width="60%" height="60%" />
@@ -9,7 +11,7 @@ Postbook
 
 <img src="Postbook3.PNG" width="60%" height="60%" />
 
-Social media made with mern stack. See your friend's daily posts and post your own.
+
 
 
 <img src="Postbook.PNG" width="60%" height="60%" />
