@@ -1,6 +1,5 @@
 Postbook
 ---
-(NOTE: AS OF 2021, IT ONLY WORKS OFFLINE NOW BECAUSE HEROKU DELETES INACTIVE APPS)
 
 <img src="Postbook2.PNG" width="60%" height="60%" />
 
@@ -10,16 +9,10 @@ Postbook
 
 <img src="Postbook3.PNG" width="60%" height="60%" />
 
-
-Simple and easy to use social media for daily posts and seeing 
-your other friend's post! 
-
-Note: On Signup you will have some followings at the get go. 
-This is to quickly demonstrate how the news feed would look like :)
+Social media made with mern stack. See your friend's daily posts and post your own.
 
 
 <img src="Postbook.PNG" width="60%" height="60%" />
-
 
 
 Usage
